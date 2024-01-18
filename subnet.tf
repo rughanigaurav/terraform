@@ -20,7 +20,7 @@ resource "aws_subnet" "private" {
   }
 }
 
-data "aws_subnets" "sid" {
+data "aws_subnets" "tts" {
   filter {
     name   = "vpc-id"
     values = [aws_vpc.main.id]
