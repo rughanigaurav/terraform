@@ -14,13 +14,13 @@ resource "aws_subnet" "private" {
   cidr_block = var.cidr[count.index]
   availability_zone = var.az[0]
   count = 2
-  
+
   tags = {
     Name = "private-sub3"
   }
 }
 
-data "aws_subnets" "sid" {
+data "aws_subnets" "tts" {
   filter {
     name   = "vpc-id"
     values = [aws_vpc.main.id]
