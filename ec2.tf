@@ -1,37 +1,54 @@
-resource "aws_instance" "testec2" {
-  ami           = "ami-08df646e18b182346"
-  instance_type = "t2.micro"
-  key_name = "TTStest.pem"
-  subnet_id = aws_subnet.public[count.index].id
-  vpc_security_group_ids = [aws_security_group.allow_tls.id]
-  associate_public_ip_address = true
-  count = 2
+resource "aws_instance" "jump-server" {
 
-  tags = {
-    Name = "testec2"
-  }
-
-  provisioner "file" {
-    source = "./TTStest.pem"
-    destination = "/home/lenovo/Downlods/TTStest.pem"
+    ami = "ami-0fc5d935ebf8bc3bc"
+    instance_type = "t2.micro"
+    security_groups = [aws_security_group.security_group]
+    key_name = "linx-staging"
+    subnet_id = aws_subnet.public_subnet_az1
   
-    connection {
-      type = "ssh"
-      host = self.public_ip
-      user = "ubuntu"
-      private_key = "${file("./TTStest.pem")}"
-    }  
+  tags = {
+
+    Name = "jump-server"
   }
 }
 
-resource "aws_instance" "db" {
-  ami           = "ami-08df646e18b182346"
-  instance_type = "t2.micro"
-  key_name = "TTStest.pem"
-  subnet_id = aws_subnet.private.id
-  vpc_security_group_ids = [aws_security_group.allow_tls_db.id]
 
+resource "aws_instance" "Frontend-S1" {
+
+    ami = "ami-0fc5d935ebf8bc3bc"
+    instance_type = "t2.micro"
+    security_groups = [aws_security_group.security_group]
+    key_name = "linx-staging"
+    subnet_id = aws_subnet.private_app_subnet_az1
+  
   tags = {
-    Name = "DB Server"
+
+    Name = "Frontend-S1"
   }
+}
+
+resource "aws_eip" "Frontend-EIP" {
+
+    instance = aws_instance.Frontend-S1.id
+  
+}
+
+
+resource "aws_instance" "Backend-S1" {
+
+    ami = "ami-0fc5d935ebf8bc3bc"
+    instance_type = "t2.micro"
+    security_groups = [aws_security_group.security_group]
+    key_name = "linx-staging"
+    subnet_id = aws_subnet.private_app_subnet_az1
+  
+  tags = {
+
+    Name = "Backend-S1"
+  }
+}
+
+resource "aws_eip" "Backend-EIP" {
+    instance = aws_instance.Backend-S1.id
+  
 }
