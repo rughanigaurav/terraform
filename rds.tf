@@ -15,7 +15,7 @@ resource "aws_db_instance" "db-instance" {
 
     instance_class = "${var.databae-instance-class}"
     availability_zone = us-east-1b
-    identifier = "${var.databae-instance-identifier}"
+    identifier = "${var.database-instance-identifier}"
     db_subnet_group_name = "default-vpc-0217757ec8c0923c7"
     multi_az = No
     vpc_security_group_ids = [ aws_security_group.security_group.id ]
