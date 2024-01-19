@@ -47,7 +47,7 @@ variable "databae-instance-class" {
   
 }
 
-variable "databae-instance-identifier" {
+variable "database-instance-identifier" {
 
     default = "linx-staging"
     description = "Database instance class"
