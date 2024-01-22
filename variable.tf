@@ -67,3 +67,8 @@ variable "record-name" {
     type = string
   
 }
+
+
+variable "ROUTE" {
+  type = list(object({ cidr_block=string, gateway_id=string }))
+}
