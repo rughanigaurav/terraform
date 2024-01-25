@@ -6,6 +6,11 @@ variable "vpc_cidr_block" {
   
 }
 
+variable "instance_type" {
+  description = "The type of EC2 Instances to run (e.g. t2.micro)"
+  type        = string
+  default     = "t2.micro"
+}
 
 variable "public_subnet_az1_cidr" {
 
@@ -66,6 +71,12 @@ variable "record-name" {
     description = "staging.linxap.com"
     type = string
   
+}
+
+variable "ami" {
+  description = "ami id"
+  type        = string
+  default     = "ami-006dcf34c09e50022"
 }
 
 
