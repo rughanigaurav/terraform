@@ -77,14 +77,14 @@ resource "aws_lb_listener" "alb_https_listener" {
 
 
 
-# create application load balancer
+# create application load balancer for backend
 # terraform aws create application load balancer
 resource "aws_lb" "Backend_alb" {
   name               = "Backend-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.security_group]
-  subnets = [ aws_subnet.public_subnet_az1,aws_subnet.public_subnet_az2 ]
+  subnets            = [ aws_subnet.public_subnet_az1,aws_subnet.public_subnet_az2 ]
 
   subnet_mapping {
     subnet_id = aws_subnet.public_subnet_az1
