@@ -9,7 +9,6 @@ resource "aws_vpc" "vpc" {
     Name    = "test-vpc"
   }
 }
-
 # create internet gateway and attach it to vpc
 # terraform aws create internet gateway
 resource "aws_internet_gateway" "internet_gateway" {
@@ -19,7 +18,6 @@ resource "aws_internet_gateway" "internet_gateway" {
     Name    = "test-IG"
   }
 }
-
 # create public subnet az1
 # terraform aws create subnet
 resource "aws_subnet" "public_subnet_az1" {
@@ -27,12 +25,10 @@ resource "aws_subnet" "public_subnet_az1" {
   cidr_block              = var.public_subnet_az1_cidr
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
-
   tags      = {
     Name    = "public-subnet az1"
   }
 }
-
 # create public subnet az2
 # terraform aws create subnet
 resource "aws_subnet" "public_subnet_az2" {

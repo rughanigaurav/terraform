@@ -4,8 +4,6 @@ resource "aws_cognito_user_pool" "linx-sandbox"{
     alias_attributes         = ["email", "preferred_username"]
     auto_verified_attributes = ["email"]
     mfa_configuration = "OPTIONAL"
-    
-    
     schema {
       name = "Email"
       attribute_data_type = "String"
@@ -26,9 +24,5 @@ resource "aws_cognito_user_pool" "linx-sandbox"{
       require_symbols = true
       require_uppercase = true
     }
-
-    
-
-    
 }
 

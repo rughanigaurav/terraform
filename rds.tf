@@ -7,10 +7,8 @@ resource "aws_db_subnet_group" "db-subnet-group" {
     tags = {
       
       Name = "Subnet for Database"
-    }
-  
+    } 
 }
-
 resource "aws_db_instance" "db-instance" {
 
     instance_class = "${var.databae-instance-class}"
@@ -19,5 +17,4 @@ resource "aws_db_instance" "db-instance" {
     db_subnet_group_name = "default-vpc-0217757ec8c0923c7"
     multi_az = false
     vpc_security_group_ids = [ aws_security_group.security_group.id ]
- 
 }
