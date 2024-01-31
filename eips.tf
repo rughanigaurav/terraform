@@ -3,5 +3,4 @@ resource "aws_eip" "NAT_eip" {
   tags = {
     Name="NAT Gateway EIP"
   }
-
 }

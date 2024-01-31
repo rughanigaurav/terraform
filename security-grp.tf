@@ -2,7 +2,7 @@
 # terraform aws create security group
 resource "aws_security_group" "security_group" {
   name        = "prolix-SG"
-  description = "enable http/https access on port 80/443"
+  description = "Apply security to access servers"
   vpc_id      = aws_vpc.vpc.id
   ingress {
     description      = "http access"

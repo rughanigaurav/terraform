@@ -7,7 +7,6 @@ resource "aws_instance" "jump-server" {
     subnet_id = aws_subnet.public_subnet_az1
   
   tags = {
-
     Name = "jump-server"
   }
 }
@@ -19,7 +18,6 @@ resource "aws_instance" "Frontend-S1" {
     key_name = "linx-staging"
     subnet_id = aws_subnet.private_app_subnet_az1 
   tags = {
-
     Name = "Frontend-S1"
   }
 }
@@ -35,7 +33,6 @@ resource "aws_instance" "Backend-S1" {
     key_name = "linx-staging"
     subnet_id = aws_subnet.private_app_subnet_az1 
   tags = {
-
     Name = "Backend-S1"
   }
 }

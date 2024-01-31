@@ -9,13 +9,11 @@ resource "aws_cognito_user_pool" "linx-sandbox"{
       attribute_data_type = "String"
       mutable = true
       developer_only_attribute = false
-
     }
     email_configuration {
       email_sending_account = "COGNITO_DEFAULT"
       
     }
-
     password_policy {
       
       minimum_length = 10
@@ -25,4 +23,3 @@ resource "aws_cognito_user_pool" "linx-sandbox"{
       require_uppercase = true
     }
 }
-

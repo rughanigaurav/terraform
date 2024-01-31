@@ -67,6 +67,6 @@ variable "ami" {
   type        = string
   default     = "ami-006dcf34c09e50022"
 }
-variable "ROUTE" {
-  type = list(object({ cidr_block=string, gateway_id=string }))
-}
+# variable "route" {
+#   type = list(object({ cidr_block=string, gateway_id=string }))
+# }

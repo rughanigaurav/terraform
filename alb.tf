@@ -73,10 +73,6 @@ resource "aws_lb_listener" "alb_https_listener" {
     target_group_arn = aws_lb_target_group.Frontend-alb_target_group.arn
   }
 }
-
-
-
-
 # create application load balancer for backend
 # terraform aws create application load balancer
 resource "aws_lb" "Backend_alb" {
