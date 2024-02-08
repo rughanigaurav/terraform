@@ -1,12 +1,17 @@
-# create application load balancer
-# terraform aws create application load balancer
+#Frontend ALB
 resource "aws_lb" "Frontend_alb" {
   name               = "Frontend-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.security_group]
   subnets = [ aws_subnet.public_subnet_az1,aws_subnet.public_subnet_az2 ]
+  access_logs {
+    
+    bucket = aws_s3_bucket.accesslogs
 
+  }
+
+  
   subnet_mapping {
     subnet_id = aws_subnet.public_subnet_az1
   }
@@ -22,8 +27,7 @@ resource "aws_lb" "Frontend_alb" {
   }
 }
 
-# create target group
-# terraform aws create target group
+#Frontend ALB Target Group
 resource "aws_lb_target_group" "Frontend-alb_target_group" {
   name        = "Frontend-TG"
   target_type = "instance"
@@ -42,8 +46,7 @@ resource "aws_lb_target_group" "Frontend-alb_target_group" {
   }
 }
 
-# create a listener on port 80 with redirect action
-# terraform aws create listener
+# Frontend ALB Listner Group
 resource "aws_lb_listener" "alb_http_listener" {
   load_balancer_arn = aws_lb.Frontend_alb.arn
   port              = 80
