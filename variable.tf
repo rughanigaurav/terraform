@@ -67,6 +67,9 @@ variable "ami" {
   type        = string
   default     = "ami-006dcf34c09e50022"
 }
-# variable "route" {
-#   type = list(object({ cidr_block=string, gateway_id=string }))
-# }
+
+variable "aws_felb_service_account" {
+    description = "F-ALB_ARN"
+    type = string
+    default = "arn:aws:elasticloadbalancing:us-east-1:817580110216:loadbalancer/app/Frontend-ALB/01aa746553e3d62a"
+}
