@@ -20,7 +20,6 @@ resource "aws_s3_bucket" "Linx-s3" {
     } 
 }
 
-
 resource "aws_s3_bucket" "access_logs" {
 
     bucket = "test-terraform191091"
