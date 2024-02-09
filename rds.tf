@@ -25,7 +25,4 @@ resource "aws_db_instance" "db-instance" {
     performance_insights_enabled = false
     port = 3306
     publicly_accessible = false
-    
-
-
 }
