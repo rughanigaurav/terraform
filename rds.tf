@@ -24,5 +24,5 @@ resource "aws_db_instance" "db-instance" {
     engine_version = 15.5
     performance_insights_enabled = false
     port = 3306
-    publicly_accessible = false
+    publicly_accessible = true
 }
