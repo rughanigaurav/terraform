@@ -63,7 +63,6 @@ resource "aws_lb_listener" "alb_http_listener" {
 }
 
 # create a listener on port 443 with forward action
-# terraform aws create listener
 resource "aws_lb_listener" "alb_https_listener" {
   load_balancer_arn  = aws_lb.Frontend_alb.arn
   port               = 443
@@ -75,8 +74,7 @@ resource "aws_lb_listener" "alb_https_listener" {
     target_group_arn = aws_lb_target_group.Frontend-alb_target_group.arn
   }
 }
-# create application load balancer for backend
-# terraform aws create application load balancer
+# Backend Loadbalancer
 resource "aws_lb" "Backend_alb" {
   name               = "Backend-alb"
   internal           = false
@@ -99,8 +97,8 @@ resource "aws_lb" "Backend_alb" {
   }
 }
 
-# create target group
-# terraform aws create target group
+# create target group for Backend ALB
+
 resource "aws_lb_target_group" "Backend-alb_target_group" {
   name        = "Backend-TG"
   target_type = "instance"
@@ -120,7 +118,6 @@ resource "aws_lb_target_group" "Backend-alb_target_group" {
 }
 
 # create a listener on port 80 with redirect action
-# terraform aws create listener
 resource "aws_lb_listener" "alb_http1_listener" {
   load_balancer_arn = aws_lb.Backend_alb.arn
   port              = 80
@@ -138,7 +135,6 @@ resource "aws_lb_listener" "alb_http1_listener" {
 }
 
 # create a listener on port 443 with forward action
-# terraform aws create listener
 resource "aws_lb_listener" "alb_https1_listener" {
   load_balancer_arn  = aws_lb.Backend_alb.arn
   port               = 443
