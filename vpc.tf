@@ -37,13 +37,11 @@ resource "aws_subnet" "public_subnet_az2" {
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
 
-  
-  tags      = {
+    tags      = {
     Name    = "public-subnet az2"
   }
 }
 
-# create route table and add public route
 # terraform aws create route table
 resource "aws_route_table" "public_route_table" {
   vpc_id       = aws_vpc.vpc.id
@@ -58,21 +56,18 @@ resource "aws_route_table" "public_route_table" {
   }
 }
 
-# associate public subnet az1 to "public route table"
 # terraform aws associate subnet with route table
 resource "aws_route_table_association" "public_subnet_az1_route_table_association" {
   subnet_id           = aws_subnet.public_subnet_az1.id
   route_table_id      = aws_route_table.public_route_table.id
 }
 
-# associate public subnet az2 to "public route table"
 # terraform aws associate subnet with route table
 resource "aws_route_table_association" "public_subnet_2_route_table_association" {
   subnet_id           = aws_subnet.public_subnet_az2.id
   route_table_id      = aws_route_table.public_route_table.id
 }
 
-# create private app subnet az1
 # terraform aws create subnet
 resource "aws_subnet" "private_app_subnet_az1" {
   vpc_id                   = aws_vpc.vpc.id
@@ -85,7 +80,6 @@ resource "aws_subnet" "private_app_subnet_az1" {
   }
 }
 
-# create private app subnet az2
 # terraform aws create subnet
 resource "aws_subnet" "private_app_subnet_az2" {
   vpc_id                   = aws_vpc.vpc.id

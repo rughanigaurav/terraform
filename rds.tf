@@ -8,6 +8,7 @@ resource "aws_db_subnet_group" "db-subnet-group" {
       Name = "default-vpc-0217757ec8c0923c7"
     } 
 }
+
 resource "aws_db_instance" "db-instance" {
     
     instance_class = "${var.databae-instance-class}"

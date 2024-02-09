@@ -10,6 +10,7 @@ resource "aws_cognito_user_pool" "linx-sandbox"{
       mutable = true
       developer_only_attribute = false
     }
+    
     email_configuration {
       email_sending_account = "COGNITO_DEFAULT"
       

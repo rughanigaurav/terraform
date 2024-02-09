@@ -28,7 +28,6 @@ resource "aws_iam_access_key" "iam_access_key" {
 
     user = aws_iam_user.staging
 }
-
 resource "aws_iam_policy" "admin_access" {
     name = "Access-policy"
     description = "adminaccesstoservices"

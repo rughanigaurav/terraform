@@ -37,7 +37,6 @@ resource "aws_cloudwatch_metric_alarm" "backalarm" {
 }
 
 
-
 resource "aws_cloudwatch_log_group" "logs" {
 
     name = "supervisor_frontend"

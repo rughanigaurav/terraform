@@ -11,7 +11,6 @@ resource "aws_lb" "Frontend_alb" {
 
   }
 
-  
   subnet_mapping {
     subnet_id = aws_subnet.public_subnet_az1
   }

@@ -1,4 +1,3 @@
-# create security group for the application load balancer
 # terraform aws create security group
 resource "aws_security_group" "security_group" {
   name        = "prolix-SG"
