@@ -8,6 +8,8 @@ resource "aws_lb" "Frontend_alb" {
   access_logs {
     
     bucket = aws_s3_bucket.access_logs
+    prefix = "alb"
+    enabled = true
 
   }
 
