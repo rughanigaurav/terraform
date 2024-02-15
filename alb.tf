@@ -3,7 +3,7 @@ resource "aws_lb" "Frontend_alb" {
   name               = "Frontend-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = "aws_security_group.security_group"
+  security_groups    = aws_security_group.security_group
   subnets =  [aws_subnet.public_subnet_az1 , aws_subnet.public_subnet_az2]
   access_logs {
     
