@@ -42,7 +42,7 @@ resource "aws_lb_target_group" "Frontend-alb_target_group" {
     path                = "/"
     port                = 80
     protocol            = "tcp"
-    timeout             = 10
+    timeout             = 5
     unhealthy_threshold = 2
   }
 }
