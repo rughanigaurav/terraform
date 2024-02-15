@@ -7,7 +7,12 @@ resource "aws_s3_bucket" "Linx-s3" {
       
       enabled = false
     }
-    server_side_encryption_configuration {
+        tags = {
+      Name="s3_bucket" 
+    } 
+
+}
+    resource "server_side_encryption_configuration" "encryption" {
       rule {
         apply_server_side_encryption_by_default {
         
@@ -15,17 +20,15 @@ resource "aws_s3_bucket" "Linx-s3" {
         }
       }
     }
-    tags = {
-      Name="s3_bucket" 
-    } 
-}
+
 
 resource "aws_s3_bucket" "access_logs" {
 
     bucket = "test-terraform191091"
+   
     acl = "public-read"
 
-    versioning {
+  versioning {
       
       enabled = false
     }
