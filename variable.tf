@@ -73,3 +73,10 @@ variable "aws_felb_service_account" {
     type = string
     default = "arn:aws:elasticloadbalancing:us-east-1:817580110216:loadbalancer/app/Frontend-ALB/01aa746553e3d62a"
 }
+
+
+
+variable "ami" {
+  type    = string
+  default = ""
+}

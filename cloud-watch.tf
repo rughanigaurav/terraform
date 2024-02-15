@@ -37,12 +37,3 @@ resource "aws_cloudwatch_metric_alarm" "backalarm" {
 }
 
 
-resource "aws_cloudwatch_log_group" "logs" {
-
-    name = "supervisor_frontend"
-    retention_in_days = "60"
-    kms_key_id = aws_kms_key.S3-Access
-
-  
-}
-
