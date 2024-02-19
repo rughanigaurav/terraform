@@ -114,7 +114,7 @@ resource "aws_lb_target_group" "Backend-alb_target_group" {
     path                = "/"
     port                = 80
     protocol            = "tcp"
-    timeout             = 5
+    timeout             = 10
     unhealthy_threshold = 2
   }
 }
