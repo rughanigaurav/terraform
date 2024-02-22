@@ -37,6 +37,25 @@ resource "aws_s3_bucket" "access_logs" {
         }
       }
     }
+
+    lifecycle_rule {
+      enabled = true
+      prefix = ""
+    
+    
+    transition {
+      days = "90"
+      storage_class = "STANDARD_IA"
+    }
+
+    expiration {
+      
+      days = "90"
+      
+    }
+    }
+
+    
     tags = {
       Name="accesslog" 
     } 

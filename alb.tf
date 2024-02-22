@@ -3,11 +3,11 @@ resource "aws_lb" "Frontend_alb" {
   name               = "Frontend-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.security_group]
-  subnets = [ aws_subnet.public_subnet_az1,aws_subnet.public_subnet_az2 ]
+  security_groups    = aws_security_group.security_group
+  subnets =  [aws_subnet.public_subnet_az1 , aws_subnet.public_subnet_az2]
   access_logs {
     
-    bucket = aws_s3_bucket.access_logs
+    bucket = "aws_s3_bucket.access_logs"
     prefix = "alb"
     enabled = true
 
@@ -43,7 +43,7 @@ resource "aws_lb_target_group" "Frontend-alb_target_group" {
     port                = 80
     protocol            = "tcp"
     timeout             = 5
-    unhealthy_threshold = 2
+    unhealthy_threshold = 5
   }
 }
 
@@ -81,8 +81,8 @@ resource "aws_lb" "Backend_alb" {
   name               = "Backend-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.security_group]
-  subnets            = [ aws_subnet.public_subnet_az1,aws_subnet.public_subnet_az2 ]
+  security_groups    = aws_security_group.security_group
+  subnets            = [aws_subnet.public_subnet_az1 , aws_subnet.public_subnet_az2]
 
   subnet_mapping {
     subnet_id = aws_subnet.public_subnet_az1
