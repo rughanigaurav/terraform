@@ -38,7 +38,7 @@ variable "private_subnet_az2_cidr" {
     type        = string
   
 }   
-variable "databae-instance-class" {
+variable "database-instance-class" {
 
     default = "db.t3.micro"
     description = "Database instance class"
