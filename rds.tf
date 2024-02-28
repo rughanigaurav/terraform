@@ -11,7 +11,7 @@ resource "aws_db_subnet_group" "db-subnet-group" {
 
 resource "aws_db_instance" "db-instance" {
     
-    instance_class = "${var.databae-instance-class}"
+    instance_class = "${var.database-instance-class}"
     availability_zone = "us-east-1b"
     identifier = "${var.database-instance-identifier}"
     db_subnet_group_name = aws_db_subnet_group.db-subnet-group
