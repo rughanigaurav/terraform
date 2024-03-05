@@ -1,3 +1,9 @@
+provider "aws" {
+  region = "us-east-1" #Linx deploy in North Virgenia
+  
+}
+
+
 resource "aws_instance" "jump-server" {
 
     ami = "ami-0fc5d935ebf8bc3bc"
@@ -22,10 +28,6 @@ resource "aws_instance" "Frontend-S1" {
   }
 }
 
-resource "aws_eip" "Frontend-EIP" {
-
-    instance = aws_instance.Frontend-S1.id
-}
 
 resource "aws_instance" "Backend-S1" {
 
@@ -37,9 +39,4 @@ resource "aws_instance" "Backend-S1" {
   tags = {
     Name = "Backend-S1"
   }
-}
-
-resource "aws_eip" "Backend-EIP" {
-    instance = aws_instance.Backend-S1.id
-  
 }
