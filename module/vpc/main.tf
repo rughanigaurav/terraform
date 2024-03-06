@@ -1,5 +1,5 @@
 # create vpc
-# terraform aws create vpc for linx
+# terraform aws linx create vpc for linx
 resource "aws_vpc" "vpc" {
   cidr_block              = var.vpc_cidr_block
   instance_tenancy        = "default"
@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 # create internet gateway and attach it to vpc
-# terraform aws create internet gateway
+# terraform aws linx create internet gateway
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id    = aws_vpc.vpc.id
 
@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "internet_gateway" {
   }
 }
 # create public subnet az1
-# terraform aws create subnet
+# terraform aws linx create subnet
 resource "aws_subnet" "public_subnet_az1" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.public_subnet_az1_cidr
@@ -30,7 +30,7 @@ resource "aws_subnet" "public_subnet_az1" {
   }
 }
 # create public subnet az2
-# terraform aws create subnet
+# terraform aws linx create subnet
 resource "aws_subnet" "public_subnet_az2" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.public_subnet_az2_cidr
@@ -42,7 +42,7 @@ resource "aws_subnet" "public_subnet_az2" {
   }
 }
 
-# terraform aws create route table
+# terraform aws linx create route table
 resource "aws_route_table" "public_route_table" {
   vpc_id       = aws_vpc.vpc.id
 
@@ -56,7 +56,7 @@ resource "aws_route_table" "public_route_table" {
   }
 }
 
-# terraform aws associate subnet with route table
+# terraform aws linx associate subnet with route table
 resource "aws_route_table_association" "public_subnet_az1_route_table_association" {
   subnet_id           = aws_subnet.public_subnet_az1.id
   route_table_id      = aws_route_table.public_route_table.id
@@ -68,7 +68,7 @@ resource "aws_route_table_association" "public_subnet_2_route_table_association"
   route_table_id      = aws_route_table.public_route_table.id
 }
 
-# terraform aws create subnet
+# terraform aws linx create subnet
 resource "aws_subnet" "private_app_subnet_az1" {
   vpc_id                   = aws_vpc.vpc.id
   cidr_block               = var.private_subnet_az1_cidr
@@ -80,7 +80,7 @@ resource "aws_subnet" "private_app_subnet_az1" {
   }
 }
 
-# terraform aws create subnet
+# terraform aws linx create subnet
 resource "aws_subnet" "private_app_subnet_az2" {
   vpc_id                   = aws_vpc.vpc.id
   cidr_block               = var.private_subnet_az2_cidr

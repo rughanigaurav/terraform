@@ -1,12 +1,12 @@
 variable "domain-name" {
-    default = "linxap.com"
+    default = ""
     description = "domain-name"
     type = string
   
 }
 variable "record-name" {
     default = "www"
-    description = "staging.linxap.com"
+    description = ""
     type = string
   
 }
