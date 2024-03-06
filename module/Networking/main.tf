@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1" #Linx deploy in North Virgenia
+  region = "us-east-2" #Linx deploy in North Virgenia
   
 }
 
