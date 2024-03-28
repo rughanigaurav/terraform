@@ -46,12 +46,12 @@ variable "database-instance-class" {
 }
 variable "database-instance-identifier" {
 
-    #default = "linx-staging"
+    default = "test-staging"
     description = "Database instance class"
   
 }
 variable "domain-name" {
-    #default = "linxap.com"
+    default = "xyz.com"
     description = "domain-name"
     type = string
   
