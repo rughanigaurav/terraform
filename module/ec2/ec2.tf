@@ -11,11 +11,6 @@ resource "aws_instance" "jump-server" {
   }
 }
 
-# resource "template_file" "user_data" {
-
-#   template = file("userdata_frontend.tpl")
-# }
-
 
 resource "aws_instance" "Frontend-S1" {
     
@@ -31,16 +26,11 @@ resource "aws_instance" "Frontend-S1" {
   }
 }
 
+
 resource "aws_eip" "Frontend-EIP" {
 
     instance = aws_instance.Frontend-S1.id
 }
-
-# resource "template_file" "user_data" {
-
-#   template = file("${terraform/module/ec2}/userdata_frontend.tpl")
-# }
-
 
 
 resource "aws_instance" "Backend-S1" {

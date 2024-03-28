@@ -66,6 +66,26 @@ resource "aws_security_group" "security_group" {
     protocol         = "tcp"
     cidr_blocks      = ["74.103.179.108/32"]
   }
+
+  ingress {
+
+    description     = "Allow-Postgres-From-Prolix"
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    cidr_blocks     = ["103.105.233.106/32"] 
+
+  }
+
+    ingress {
+
+    description     = "Allow-Postgres-From-Prolix"
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    cidr_blocks     = ["74.103.179.108/32"] 
+
+  }
   egress {
     from_port        = 0
     to_port          = 0
