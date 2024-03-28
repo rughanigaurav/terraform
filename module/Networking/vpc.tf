@@ -1,12 +1,12 @@
 # create vpc
-# terraform aws create vpc for linx
+# terraform aws create vpc for prolix
 resource "aws_vpc" "vpc" {
-  cidr_block              = var.vpc_cidr_block
-  instance_tenancy        = "default"
-  enable_dns_hostnames    = true
+  cidr_block             = var.vpc_cidr_block
+  instance_tenancy       = "default"
+  enable_dns_hostnames   = true
 
-  tags      = {
-    Name    = "test-vpc"
+  tags   = {
+    Name = "test-vpc"
   }
 }
 # create internet gateway and attach it to vpc
@@ -14,28 +14,28 @@ resource "aws_vpc" "vpc" {
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id    = aws_vpc.vpc.id
 
-  tags      = {
-    Name    = "test-IG"
+  tags       = {
+    Name     = "test-IG"
   }
 }
 # create public subnet az1
 # terraform aws create subnet
 resource "aws_subnet" "public_subnet_az1" {
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.public_subnet_az1_cidr
-  availability_zone       = "us-east-1a"
-  map_public_ip_on_launch = true
-  tags      = {
-    Name    = "public-subnet az1"
+  vpc_id                    = aws_vpc.vpc.id
+  cidr_block                = var.public_subnet_az1_cidr
+  availability_zone         = "us-east-1a"
+  map_public_ip_on_launch   = true
+  tags        = {
+    Name      = "public-subnet az1"
   }
 }
 # create public subnet az2
 # terraform aws create subnet
-resource "aws_subnet" "public_subnet_az2" {
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.public_subnet_az2_cidr
-  availability_zone       = "us-east-1b"
-  map_public_ip_on_launch = true
+resource "aws_subnet" "public_subnet_az2"  {
+vpc_id                      = aws_vpc.vpc.id 
+cidr_block                  = var.public_subnet_az2_cidr
+availability_zone           = "us-east-1b"
+map_public_ip_on_launch     = true
 
     tags      = {
     Name    = "public-subnet az2"
