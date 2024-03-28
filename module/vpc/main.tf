@@ -9,7 +9,7 @@ resource "aws_vpc" "vpc" {
     Name    = "test-vpc"
   }
 }
-# create internet gateway and attach it to vpc
+
 # terraform aws linx create internet gateway
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id    = aws_vpc.vpc.id
@@ -18,6 +18,7 @@ resource "aws_internet_gateway" "internet_gateway" {
     Name    = "test-IG"
   }
 }
+
 # create public subnet az1
 # terraform aws linx create subnet
 resource "aws_subnet" "public_subnet_az1" {
@@ -29,6 +30,7 @@ resource "aws_subnet" "public_subnet_az1" {
     Name    = "public-subnet az1"
   }
 }
+
 # create public subnet az2
 # terraform aws linx create subnet
 resource "aws_subnet" "public_subnet_az2" {
@@ -62,7 +64,7 @@ resource "aws_route_table_association" "public_subnet_az1_route_table_associatio
   route_table_id      = aws_route_table.public_route_table.id
 }
 
-# terraform aws associate subnet with route table
+# terraform aws linx associate subnet with route table
 resource "aws_route_table_association" "public_subnet_2_route_table_association" {
   subnet_id           = aws_subnet.public_subnet_az2.id
   route_table_id      = aws_route_table.public_route_table.id
@@ -92,6 +94,7 @@ resource "aws_subnet" "private_app_subnet_az2" {
   }
 }
 
+#terraform aws linx associate subnet to route_table
 resource "aws_route_table_association" "private_subnet_1_route_table_association" {
 
     subnet_id = aws_subnet.private_app_subnet_az1.id
