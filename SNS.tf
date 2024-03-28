@@ -1,8 +1,8 @@
 # resource "aws_sns_topic" "sns" {
-#   name = "Linx-Notification"  
+#   name = "test-Notification"  
 # }
 # data "aws_sns_topic" "sns" {
-#     name = "Linx-Notification"
+#     name = "test-Notification"
 
 # }
 # resource "aws_sns_topic_subscription" "user_updates_sqs_target" {
