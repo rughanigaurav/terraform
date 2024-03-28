@@ -45,13 +45,7 @@ resource "aws_security_group" "security_group" {
     protocol         = "tcp"
     cidr_blocks      = ["103.105.233.106/32"]
   }
-  ingress {
-    description      = "Allow-Postgres"
-    from_port        = 5432
-    to_port          = 5432
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
+  
   ingress {
     description      = "Allow-SSH-From-Trothlabs"
     from_port        = 22
