@@ -24,9 +24,7 @@ resource "aws_instance" "Frontend-S1" {
     security_groups = aws_security_group.security_group
     key_name = "linx-staging"
     subnet_id = aws_subnet.private_app_subnet_az1
-    user_data = <<-EOF
-      ${file("userdata_frontend.sh")}
-    EOF
+    user_data = "${file("userdata_frontend.sh")}"
 
   tags = {
     Name = "Frontend-S1"
@@ -52,10 +50,7 @@ resource "aws_instance" "Backend-S1" {
     security_groups = aws_security_group.security_group
     key_name = "linx-staging"
     subnet_id = aws_subnet.private_app_subnet_az1
-    user_data = <<-EOF
-      ${file("userdata_backend.sh")}
-    EOF
-
+    user_data = "${file("userdata_backend.sh")}"
 
   tags = {
     Name = "Backend-S1"
