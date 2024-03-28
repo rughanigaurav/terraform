@@ -3,7 +3,7 @@ resource "aws_instance" "jump-server" {
     ami = "ami-0fc5d935ebf8bc3bc"
     instance_type = "t2.micro"
     security_groups = [aws_security_group.security_group]
-    key_name = "linx-staging"
+    key_name = "test-staging"
     subnet_id = aws_subnet.public_subnet_az1
   
   tags = {
@@ -20,6 +20,7 @@ resource "aws_instance" "Frontend-S1" {
     key_name = "test-staging"
     subnet_id = aws_subnet.private_app_subnet_az1
     user_data = "${file("userdata_frontend.sh")}"
+    
 
   tags = {
     Name = "Frontend-S1"
