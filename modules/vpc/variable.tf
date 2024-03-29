@@ -34,3 +34,10 @@ variable "private_subnet_az2_cidr" {
     type        = string
   
 }
+
+variable "availability_zone" {
+
+    default = ["us-east-1a" , "us-east-1b"]
+    type = string
+    description = "availability zones"
+}
