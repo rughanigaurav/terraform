@@ -57,13 +57,6 @@ resource "aws_s3_bucket" "access_logs" {
     
     }
 }
-resource "aws_s3_bucket_lifecycle_configuration" "lifecycle1" {
-    
-    bucket = aws_s3_bucket.mybucket.id
-    
-
-
-}
       
     
 resource "aws_s3_bucket_versioning" "versioning2" {
