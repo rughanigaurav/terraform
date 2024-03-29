@@ -73,4 +73,3 @@ variable "aws_felb_service_account" {
     type = string
     default = ""
 }
-

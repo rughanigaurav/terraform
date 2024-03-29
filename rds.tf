@@ -9,10 +9,12 @@ resource "aws_db_subnet_group" "db-subnet-group" {
     } 
 }
 
+data "aws_availability_zones" "available_zones" {}
+
 resource "aws_db_instance" "db-instance" {
     
     instance_class = "${var.database-instance-class}"
-    availability_zone = "us-east-1b"
+    availability_zone = data.aws_availability_zones.available_zones.names[0]
     identifier = "${var.database-instance-identifier}"
     db_subnet_group_name = aws_db_subnet_group.db-subnet-group
     multi_az = false
