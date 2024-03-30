@@ -1,18 +1,18 @@
-resource "aws_ses_configuration_set" "Linx-Configuration-Set" {
+resource "aws_ses_configuration_set" "test-Configuration-Set" {
 
-    name = "Linx-Configuration-Set"
+    name = "test-Configuration-Set"
     sending_enabled = true
     reputation_metrics_enabled = false
 }
 
-resource "aws_ses_domain_identity" "linx" {
+resource "aws_ses_domain_identity" "test" {
 
-    domain = "staging.linxap.com"
+    domain = "xyz.com"
     
 }
 
 resource "aws_ses_email_identity" "verifiedmail" {
   
-    email = "linx.prolix@gmail.com"
+    email = "test.prolix@gmail.com"
     
 }

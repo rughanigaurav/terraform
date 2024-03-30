@@ -46,12 +46,12 @@ variable "database-instance-class" {
 }
 variable "database-instance-identifier" {
 
-    default = "linx-staging"
+    default = "test-staging"
     description = "Database instance class"
   
 }
 variable "domain-name" {
-    default = "linxap.com"
+    default = "xyz.com"
     description = "domain-name"
     type = string
   
@@ -71,6 +71,5 @@ variable "ami" {
 variable "aws_felb_service_account" {
     description = "F-ALB_ARN"
     type = string
-    default = "arn:aws:elasticloadbalancing:us-east-1:817580110216:loadbalancer/app/Frontend-ALB/01aa746553e3d62a"
+    default = ""
 }
-

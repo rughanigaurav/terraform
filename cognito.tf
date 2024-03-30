@@ -1,6 +1,6 @@
-resource "aws_cognito_user_pool" "linx-sandbox"{
+resource "aws_cognito_user_pool" "test-sandbox"{
 
-    name = "linx-sandbox"
+    name = "test-sandbox"
     alias_attributes         = ["email", "preferred_username"]
     auto_verified_attributes = ["email"]
     mfa_configuration = "OPTIONAL"
